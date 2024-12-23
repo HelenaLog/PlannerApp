@@ -11,7 +11,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     ) -> Bool {
 
         window = UIWindow(frame: UIScreen.main.bounds)
-        let navigationController = UINavigationController(rootViewController: ViewController())
+        let navigationController = UINavigationController(rootViewController: TaskListViewController())
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
 
