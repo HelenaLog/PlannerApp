@@ -113,6 +113,7 @@ final class CreateTaskViewController: UIViewController {
         embedViews()
         setupLayout()
         setupNavigationBar()
+        setupTapGestureRecognizer()
     }
 
     // MARK: - Embed views
@@ -146,11 +147,24 @@ final class CreateTaskViewController: UIViewController {
         )
     }
 
+    // MARK: - Setup Tap Gesture Recognizer
+
+    private func setupTapGestureRecognizer() {
+        let tapGestureRecognizer = UITapGestureRecognizer()
+        tapGestureRecognizer.addTarget(self, action: #selector(keyboardDismiss))
+        view.addGestureRecognizer(tapGestureRecognizer)
+    }
+
     // MARK: - Action
 
     @objc
     func saveTaskTapped() {
         print("Save task")
+    }
+
+    @objc
+    func keyboardDismiss() {
+        view.endEditing(true)
     }
 
     // MARK: - Setup Layout
