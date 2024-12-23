@@ -18,6 +18,7 @@
 		4D743E372D19AB16003F382F /* MockTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D743E362D19AB16003F382F /* MockTask.swift */; };
 		4D743E392D19AF71003F382F /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D743E382D19AF71003F382F /* Section.swift */; };
 		4D743E3B2D19AFAB003F382F /* TaskSectionCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D743E3A2D19AFAB003F382F /* TaskSectionCreator.swift */; };
+		4D743E3E2D19CA38003F382F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D743E3D2D19CA37003F382F /* DetailViewController.swift */; };
 		B09B4A6D1048C318A5AEE127 /* Pods_PlannerApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11CFF879FF88284D06E31FC6 /* Pods_PlannerApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,7 @@
 		4D743E362D19AB16003F382F /* MockTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTask.swift; sourceTree = "<group>"; };
 		4D743E382D19AF71003F382F /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		4D743E3A2D19AFAB003F382F /* TaskSectionCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskSectionCreator.swift; sourceTree = "<group>"; };
+		4D743E3D2D19CA37003F382F /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		A681D8B928BA68184A270739 /* Pods-PlannerApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlannerApp.debug.xcconfig"; path = "Target Support Files/Pods-PlannerApp/Pods-PlannerApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,6 +118,7 @@
 		4D228BB02D1966DB005588DF /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				4D743E3C2D19C9FF003F382F /* Detail */,
 				4D228BBF2D196D68005588DF /* TaskList */,
 			);
 			path = Modules;
@@ -170,6 +173,22 @@
 				4D743E382D19AF71003F382F /* Section.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		4D743E3C2D19C9FF003F382F /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				4D743E3F2D19CF06003F382F /* View */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		4D743E3F2D19CF06003F382F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4D743E3D2D19CA37003F382F /* DetailViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		DAF1B6425E6B9BDD0A5961ED /* Frameworks */ = {
@@ -353,6 +372,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D743E3E2D19CA38003F382F /* DetailViewController.swift in Sources */,
 				4D228BC12D1970B3005588DF /* TaskListTableViewCell.swift in Sources */,
 				4D228B9F2D195576005588DF /* TaskListViewController.swift in Sources */,
 				4D228BC42D1977D6005588DF /* TimeInterval+Extension.swift in Sources */,
