@@ -114,6 +114,7 @@ final class CreateTaskViewController: UIViewController {
         setupLayout()
         setupNavigationBar()
         setupTapGestureRecognizer()
+        addKeyboardObservers()
     }
 
     // MARK: - Embed views
@@ -153,6 +154,23 @@ final class CreateTaskViewController: UIViewController {
         let tapGestureRecognizer = UITapGestureRecognizer()
         tapGestureRecognizer.addTarget(self, action: #selector(keyboardDismiss))
         view.addGestureRecognizer(tapGestureRecognizer)
+    }
+
+    // MARK: - Setup Keyboard Hiding
+
+    private func addKeyboardObservers() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillHide),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
     }
 
     // MARK: - Action
