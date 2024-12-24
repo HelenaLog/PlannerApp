@@ -2,7 +2,7 @@ import UIKit
 
 final class DetailViewController: UIViewController {
 
-    private var mockTask: MockTask
+    var presenter: DetailViewPresenterProtocol!
 
     // MARK: - Private Visual Components
 
@@ -15,6 +15,7 @@ final class DetailViewController: UIViewController {
 
     private let titleLabel: UILabel = {
         let label = UILabel()
+        label.text = "Title label"
         label.font = .systemFont(ofSize: 25, weight: .medium)
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -54,18 +55,11 @@ final class DetailViewController: UIViewController {
         embedViews()
         setupLayout()
         setupNavigationBar()
-        configure(with: mockTask)
+        presenter.setTask()
     }
 
-    // MARK: - Init
-
-    init(mockTask: MockTask) {
-        self.mockTask = mockTask
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    deinit {
+        print("deinit DetailViewController")
     }
 
     // MARK: - Embed views
@@ -91,20 +85,11 @@ final class DetailViewController: UIViewController {
         )
     }
 
-    // MARK: - Configure
-
-    private func configure(with task: MockTask) {
-        titleLabel.text = task.name
-        dayLabel.text = task.dateStart.timeIntervalToDayString()
-        timeLabel.text = task.dateStart.timeIntervalToString() + " - " + task.dateFinish.timeIntervalToString()
-        descriptionLabel.text = task.description
-    }
-
     // MARK: - Action
 
     @objc
     func deleteTaskTapped() {
-        print("delete task")
+        presenter.delete()
     }
 
     // MARK: - Setup Layout
@@ -136,5 +121,19 @@ final class DetailViewController: UIViewController {
             descriptionLabel.trailingAnchor.constraint(equalTo: scrollFrameGuide.trailingAnchor, constant: -16),
             descriptionLabel.bottomAnchor.constraint(equalTo: scrollContentGuide.bottomAnchor, constant: -16)
         ])
+    }
+}
+
+// MARK: - DetailViewProtocol
+
+extension DetailViewController: DetailViewProtocol {
+
+    // MARK: - Configure
+
+    func configure(with task: Task) {
+        titleLabel.text = task.name
+        dayLabel.text = task.dateStart.dateToString()
+        timeLabel.text = task.dateStart.timeToString() + " - " + task.dateFinish.timeToString()
+        descriptionLabel.text = task.taskDescription
     }
 }

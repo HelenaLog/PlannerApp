@@ -22,11 +22,20 @@
 		4D743E422D19DB17003F382F /* CreateTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D743E412D19DB17003F382F /* CreateTaskViewController.swift */; };
 		4D743E452D19E4BE003F382F /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D743E442D19E4BE003F382F /* UIViewController+Extension.swift */; };
 		4D743E472D19E529003F382F /* UIResponder+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D743E462D19E529003F382F /* UIResponder+Extension.swift */; };
+		4D9344692D1A954D00AAE613 /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9344682D1A954D00AAE613 /* Assembly.swift */; };
+		4D93446B2D1A967000AAE613 /* AssemblyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D93446A2D1A967000AAE613 /* AssemblyProtocol.swift */; };
+		4D93446E2D1A9F5700AAE613 /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D93446D2D1A9F5700AAE613 /* DetailPresenter.swift */; };
+		4D9344712D1AAC5600AAE613 /* CreateTaskPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9344702D1AAC5600AAE613 /* CreateTaskPresenter.swift */; };
+		4DA2B64F2D1ACF2900F4F7B0 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA2B64E2D1ACF2900F4F7B0 /* Router.swift */; };
+		4DA2B6512D1AD72400F4F7B0 /* RouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA2B6502D1AD72400F4F7B0 /* RouterProtocol.swift */; };
+		4DA2B6532D1AD7C000F4F7B0 /* MainRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA2B6522D1AD7C000F4F7B0 /* MainRouterProtocol.swift */; };
 		4DBC7B2F2D1A01180002EE00 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBC7B2E2D1A01180002EE00 /* RealmService.swift */; };
 		4DBC7B312D1A019E0002EE00 /* RealmError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBC7B302D1A019E0002EE00 /* RealmError.swift */; };
 		4DBC7B332D1A03080002EE00 /* RealmServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBC7B322D1A03080002EE00 /* RealmServiceProtocol.swift */; };
 		4DBC7B352D1A03720002EE00 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBC7B342D1A03720002EE00 /* Task.swift */; };
 		4DBC7B372D1A04440002EE00 /* RealmService+Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBC7B362D1A04440002EE00 /* RealmService+Task.swift */; };
+		4DBC7B3A2D1A08540002EE00 /* TaskListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBC7B392D1A08540002EE00 /* TaskListPresenter.swift */; };
+		4DBC7B3C2D1A12940002EE00 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBC7B3B2D1A12940002EE00 /* Date+Extension.swift */; };
 		B09B4A6D1048C318A5AEE127 /* Pods_PlannerApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11CFF879FF88284D06E31FC6 /* Pods_PlannerApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,11 +70,20 @@
 		4D743E412D19DB17003F382F /* CreateTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskViewController.swift; sourceTree = "<group>"; };
 		4D743E442D19E4BE003F382F /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		4D743E462D19E529003F382F /* UIResponder+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder+Extension.swift"; sourceTree = "<group>"; };
+		4D9344682D1A954D00AAE613 /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
+		4D93446A2D1A967000AAE613 /* AssemblyProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyProtocol.swift; sourceTree = "<group>"; };
+		4D93446D2D1A9F5700AAE613 /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
+		4D9344702D1AAC5600AAE613 /* CreateTaskPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskPresenter.swift; sourceTree = "<group>"; };
+		4DA2B64E2D1ACF2900F4F7B0 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		4DA2B6502D1AD72400F4F7B0 /* RouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterProtocol.swift; sourceTree = "<group>"; };
+		4DA2B6522D1AD7C000F4F7B0 /* MainRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouterProtocol.swift; sourceTree = "<group>"; };
 		4DBC7B2E2D1A01180002EE00 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		4DBC7B302D1A019E0002EE00 /* RealmError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmError.swift; sourceTree = "<group>"; };
 		4DBC7B322D1A03080002EE00 /* RealmServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmServiceProtocol.swift; sourceTree = "<group>"; };
 		4DBC7B342D1A03720002EE00 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		4DBC7B362D1A04440002EE00 /* RealmService+Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RealmService+Task.swift"; sourceTree = "<group>"; };
+		4DBC7B392D1A08540002EE00 /* TaskListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListPresenter.swift; sourceTree = "<group>"; };
+		4DBC7B3B2D1A12940002EE00 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		A681D8B928BA68184A270739 /* Pods-PlannerApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlannerApp.debug.xcconfig"; path = "Target Support Files/Pods-PlannerApp/Pods-PlannerApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -144,6 +162,8 @@
 		4D228BB12D19672F005588DF /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				4DA2B64D2D1ACE3B00F4F7B0 /* Router */,
+				4D9344672D1A952400AAE613 /* Assembly */,
 				4DBC7B2D2D1A00E50002EE00 /* Storage */,
 			);
 			path = Services;
@@ -162,6 +182,7 @@
 			children = (
 				4D743E352D19AAB8003F382F /* Model */,
 				4D743E342D19AA7A003F382F /* View */,
+				4DBC7B382D1A07FD0002EE00 /* Presenter */,
 			);
 			path = TaskList;
 			sourceTree = "<group>";
@@ -170,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				4D228BC32D1977D6005588DF /* TimeInterval+Extension.swift */,
+				4DBC7B3B2D1A12940002EE00 /* Date+Extension.swift */,
 				4D743E442D19E4BE003F382F /* UIViewController+Extension.swift */,
 				4D743E462D19E529003F382F /* UIResponder+Extension.swift */,
 			);
@@ -200,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				4D743E3F2D19CF06003F382F /* View */,
+				4D93446C2D1A9F0B00AAE613 /* Presenter */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -216,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				4D743E432D19E2AB003F382F /* View */,
+				4D93446F2D1AAC2300AAE613 /* Presenter */,
 			);
 			path = CreateTask;
 			sourceTree = "<group>";
@@ -228,6 +252,41 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		4D9344672D1A952400AAE613 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				4D9344682D1A954D00AAE613 /* Assembly.swift */,
+				4D93446A2D1A967000AAE613 /* AssemblyProtocol.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		4D93446C2D1A9F0B00AAE613 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				4D93446D2D1A9F5700AAE613 /* DetailPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		4D93446F2D1AAC2300AAE613 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				4D9344702D1AAC5600AAE613 /* CreateTaskPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		4DA2B64D2D1ACE3B00F4F7B0 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				4DA2B64E2D1ACF2900F4F7B0 /* Router.swift */,
+				4DA2B6502D1AD72400F4F7B0 /* RouterProtocol.swift */,
+				4DA2B6522D1AD7C000F4F7B0 /* MainRouterProtocol.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		4DBC7B2D2D1A00E50002EE00 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
@@ -237,6 +296,14 @@
 				4DBC7B302D1A019E0002EE00 /* RealmError.swift */,
 			);
 			path = Storage;
+			sourceTree = "<group>";
+		};
+		4DBC7B382D1A07FD0002EE00 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				4DBC7B392D1A08540002EE00 /* TaskListPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		DAF1B6425E6B9BDD0A5961ED /* Frameworks */ = {
@@ -421,21 +488,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DBC7B372D1A04440002EE00 /* RealmService+Task.swift in Sources */,
+				4DA2B6532D1AD7C000F4F7B0 /* MainRouterProtocol.swift in Sources */,
+				4D9344692D1A954D00AAE613 /* Assembly.swift in Sources */,
 				4D743E3E2D19CA38003F382F /* DetailViewController.swift in Sources */,
 				4D743E452D19E4BE003F382F /* UIViewController+Extension.swift in Sources */,
 				4D743E472D19E529003F382F /* UIResponder+Extension.swift in Sources */,
 				4D228BC12D1970B3005588DF /* TaskListTableViewCell.swift in Sources */,
 				4D228B9F2D195576005588DF /* TaskListViewController.swift in Sources */,
+				4DA2B6512D1AD72400F4F7B0 /* RouterProtocol.swift in Sources */,
+				4D93446B2D1A967000AAE613 /* AssemblyProtocol.swift in Sources */,
 				4D228BC42D1977D6005588DF /* TimeInterval+Extension.swift in Sources */,
 				4DBC7B312D1A019E0002EE00 /* RealmError.swift in Sources */,
 				4D743E3B2D19AFAB003F382F /* TaskSectionCreator.swift in Sources */,
 				4DBC7B352D1A03720002EE00 /* Task.swift in Sources */,
 				4D743E392D19AF71003F382F /* Section.swift in Sources */,
+				4DBC7B3A2D1A08540002EE00 /* TaskListPresenter.swift in Sources */,
 				4D228B9B2D195576005588DF /* AppDelegate.swift in Sources */,
+				4D93446E2D1A9F5700AAE613 /* DetailPresenter.swift in Sources */,
+				4DA2B64F2D1ACF2900F4F7B0 /* Router.swift in Sources */,
 				4DBC7B2F2D1A01180002EE00 /* RealmService.swift in Sources */,
 				4D743E372D19AB16003F382F /* MockTask.swift in Sources */,
 				4D228B9D2D195576005588DF /* SceneDelegate.swift in Sources */,
 				4D743E422D19DB17003F382F /* CreateTaskViewController.swift in Sources */,
+				4DBC7B3C2D1A12940002EE00 /* Date+Extension.swift in Sources */,
+				4D9344712D1AAC5600AAE613 /* CreateTaskPresenter.swift in Sources */,
 				4DBC7B332D1A03080002EE00 /* RealmServiceProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
