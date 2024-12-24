@@ -24,6 +24,7 @@
 		4D743E472D19E529003F382F /* UIResponder+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D743E462D19E529003F382F /* UIResponder+Extension.swift */; };
 		4D9344692D1A954D00AAE613 /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9344682D1A954D00AAE613 /* Assembly.swift */; };
 		4D93446B2D1A967000AAE613 /* AssemblyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D93446A2D1A967000AAE613 /* AssemblyProtocol.swift */; };
+		4D93446E2D1A9F5700AAE613 /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D93446D2D1A9F5700AAE613 /* DetailPresenter.swift */; };
 		4DBC7B2F2D1A01180002EE00 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBC7B2E2D1A01180002EE00 /* RealmService.swift */; };
 		4DBC7B312D1A019E0002EE00 /* RealmError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBC7B302D1A019E0002EE00 /* RealmError.swift */; };
 		4DBC7B332D1A03080002EE00 /* RealmServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBC7B322D1A03080002EE00 /* RealmServiceProtocol.swift */; };
@@ -67,6 +68,7 @@
 		4D743E462D19E529003F382F /* UIResponder+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder+Extension.swift"; sourceTree = "<group>"; };
 		4D9344682D1A954D00AAE613 /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
 		4D93446A2D1A967000AAE613 /* AssemblyProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyProtocol.swift; sourceTree = "<group>"; };
+		4D93446D2D1A9F5700AAE613 /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
 		4DBC7B2E2D1A01180002EE00 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		4DBC7B302D1A019E0002EE00 /* RealmError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmError.swift; sourceTree = "<group>"; };
 		4DBC7B322D1A03080002EE00 /* RealmServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmServiceProtocol.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				4D743E3F2D19CF06003F382F /* View */,
+				4D93446C2D1A9F0B00AAE613 /* Presenter */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -246,6 +249,14 @@
 				4D93446A2D1A967000AAE613 /* AssemblyProtocol.swift */,
 			);
 			path = Assembly;
+			sourceTree = "<group>";
+		};
+		4D93446C2D1A9F0B00AAE613 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				4D93446D2D1A9F5700AAE613 /* DetailPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		4DBC7B2D2D1A00E50002EE00 /* Storage */ = {
@@ -463,6 +474,7 @@
 				4D743E392D19AF71003F382F /* Section.swift in Sources */,
 				4DBC7B3A2D1A08540002EE00 /* TaskListPresenter.swift in Sources */,
 				4D228B9B2D195576005588DF /* AppDelegate.swift in Sources */,
+				4D93446E2D1A9F5700AAE613 /* DetailPresenter.swift in Sources */,
 				4DBC7B2F2D1A01180002EE00 /* RealmService.swift in Sources */,
 				4D743E372D19AB16003F382F /* MockTask.swift in Sources */,
 				4D228B9D2D195576005588DF /* SceneDelegate.swift in Sources */,

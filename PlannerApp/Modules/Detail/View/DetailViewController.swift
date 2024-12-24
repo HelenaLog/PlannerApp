@@ -2,7 +2,7 @@ import UIKit
 
 final class DetailViewController: UIViewController {
 
-    private var task: Task
+    var presenter: DetailViewPresenterProtocol!
 
     // MARK: - Private Visual Components
 
@@ -54,18 +54,6 @@ final class DetailViewController: UIViewController {
         embedViews()
         setupLayout()
         setupNavigationBar()
-        configure(with: task)
-    }
-
-    // MARK: - Init
-
-    init(task: Task) {
-        self.task = task
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 
     // MARK: - Embed views
@@ -91,20 +79,11 @@ final class DetailViewController: UIViewController {
         )
     }
 
-    // MARK: - Configure
-
-    private func configure(with task: Task) {
-        titleLabel.text = task.name
-        dayLabel.text = task.dateStart.dateToString()
-        timeLabel.text = task.dateStart.timeToString() + " - " + task.dateFinish.timeToString()
-        descriptionLabel.text = task.description
-    }
-
     // MARK: - Action
 
     @objc
     func deleteTaskTapped() {
-        print("delete task")
+        presenter.delete()
     }
 
     // MARK: - Setup Layout
@@ -136,5 +115,23 @@ final class DetailViewController: UIViewController {
             descriptionLabel.trailingAnchor.constraint(equalTo: scrollFrameGuide.trailingAnchor, constant: -16),
             descriptionLabel.bottomAnchor.constraint(equalTo: scrollContentGuide.bottomAnchor, constant: -16)
         ])
+    }
+}
+
+// MARK: - DetailViewProtocol
+
+extension DetailViewController: DetailViewProtocol {
+
+    // MARK: - Configure
+
+    func configure(with task: Task) {
+        titleLabel.text = task.name
+        dayLabel.text = task.dateStart.dateToString()
+        timeLabel.text = task.dateStart.timeToString() + " - " + task.dateFinish.timeToString()
+        descriptionLabel.text = task.description
+    }
+
+    func popToRootVC() {
+        navigationController?.popToViewController(self, animated: true)
     }
 }

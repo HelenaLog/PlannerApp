@@ -8,4 +8,12 @@ final class Assembly: AssemblyProtocol {
         view.presenter = presenter
         return view
     }
+
+    static func makeDetailModule(with task: Task) -> UIViewController {
+        let view = DetailViewController()
+        let storageService = RealmService()
+        let presenter = DetailPresenter(view: view, storageService: storageService, task: task)
+        view.presenter = presenter
+        return view
+    }
 }

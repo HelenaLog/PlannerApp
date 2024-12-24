@@ -130,8 +130,7 @@ extension TaskListViewController: UITableViewDataSource {
 extension TaskListViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let task = presenter.task(at: indexPath)
-        let detailVC = DetailViewController(task: task)
+        let detailVC = DetailViewController()
         navigationController?.pushViewController(detailVC, animated: true)
     }
 }
