@@ -16,4 +16,12 @@ final class Assembly: AssemblyProtocol {
         view.presenter = presenter
         return view
     }
+
+    static func makeCreateTaskModule() -> UIViewController {
+        let view = CreateTaskViewController()
+        let storageService = RealmService()
+        let presenter = CreateTaskPresenter(view: view, storageService: storageService)
+        view.presenter = presenter
+        return view
+    }
 }

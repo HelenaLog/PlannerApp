@@ -25,6 +25,7 @@
 		4D9344692D1A954D00AAE613 /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9344682D1A954D00AAE613 /* Assembly.swift */; };
 		4D93446B2D1A967000AAE613 /* AssemblyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D93446A2D1A967000AAE613 /* AssemblyProtocol.swift */; };
 		4D93446E2D1A9F5700AAE613 /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D93446D2D1A9F5700AAE613 /* DetailPresenter.swift */; };
+		4D9344712D1AAC5600AAE613 /* CreateTaskPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9344702D1AAC5600AAE613 /* CreateTaskPresenter.swift */; };
 		4DBC7B2F2D1A01180002EE00 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBC7B2E2D1A01180002EE00 /* RealmService.swift */; };
 		4DBC7B312D1A019E0002EE00 /* RealmError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBC7B302D1A019E0002EE00 /* RealmError.swift */; };
 		4DBC7B332D1A03080002EE00 /* RealmServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBC7B322D1A03080002EE00 /* RealmServiceProtocol.swift */; };
@@ -69,6 +70,7 @@
 		4D9344682D1A954D00AAE613 /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
 		4D93446A2D1A967000AAE613 /* AssemblyProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyProtocol.swift; sourceTree = "<group>"; };
 		4D93446D2D1A9F5700AAE613 /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
+		4D9344702D1AAC5600AAE613 /* CreateTaskPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskPresenter.swift; sourceTree = "<group>"; };
 		4DBC7B2E2D1A01180002EE00 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		4DBC7B302D1A019E0002EE00 /* RealmError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmError.swift; sourceTree = "<group>"; };
 		4DBC7B322D1A03080002EE00 /* RealmServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmServiceProtocol.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				4D743E432D19E2AB003F382F /* View */,
+				4D93446F2D1AAC2300AAE613 /* Presenter */,
 			);
 			path = CreateTask;
 			sourceTree = "<group>";
@@ -255,6 +258,14 @@
 			isa = PBXGroup;
 			children = (
 				4D93446D2D1A9F5700AAE613 /* DetailPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		4D93446F2D1AAC2300AAE613 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				4D9344702D1AAC5600AAE613 /* CreateTaskPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -480,6 +491,7 @@
 				4D228B9D2D195576005588DF /* SceneDelegate.swift in Sources */,
 				4D743E422D19DB17003F382F /* CreateTaskViewController.swift in Sources */,
 				4DBC7B3C2D1A12940002EE00 /* Date+Extension.swift in Sources */,
+				4D9344712D1AAC5600AAE613 /* CreateTaskPresenter.swift in Sources */,
 				4DBC7B332D1A03080002EE00 /* RealmServiceProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -4,6 +4,15 @@ extension UIViewController {
 
     // MARK: - AlertController
 
+    func showAlert(title: String, message: String?) {
+        let alertController = UIAlertController(title: title,
+                                                message: message,
+                                                preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .cancel)
+        alertController.addAction(okAction)
+        present(alertController, animated: true)
+    }
+
     func presentChangeAlert(completionHandler: @escaping (Bool) -> Void) {
         let alertController = UIAlertController(title: "Do you really want to delete the task?",
                                                 message: "",

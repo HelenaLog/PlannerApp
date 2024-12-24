@@ -78,7 +78,8 @@ final class TaskListViewController: UIViewController {
 
     @objc
     func addTaskTapped() {
-        print("addTaskTapped")
+        let createTaskVC = Assembly.makeCreateTaskModule()
+        navigationController?.pushViewController(createTaskVC, animated: true)
     }
 
     // MARK: - Setup Layout
@@ -130,7 +131,8 @@ extension TaskListViewController: UITableViewDataSource {
 extension TaskListViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let detailVC = DetailViewController()
+        let task = presenter.task(at: indexPath)
+        let detailVC = Assembly.makeDetailModule(with: task)
         navigationController?.pushViewController(detailVC, animated: true)
     }
 }

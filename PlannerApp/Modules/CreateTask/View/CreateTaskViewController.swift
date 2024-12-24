@@ -2,6 +2,8 @@ import UIKit
 
 final class CreateTaskViewController: UIViewController {
 
+    var presenter: CreateTaskViewPresenterProtocol!
+
     // MARK: - Private Visual Components
 
     private let scrollView: UIScrollView = {
@@ -177,12 +179,18 @@ final class CreateTaskViewController: UIViewController {
 
     @objc
     func saveTaskTapped() {
-        print("Save task")
+        presenter.saveTaskWith(
+            dateStart: datePicker.date,
+            timeStart: startTimePicker.date,
+            timeFinish: finishTimePicker.date,
+            name: taskNameTextField.text ?? "",
+            description: descriptionTextView.text
+        )
     }
 
     @objc
     func keyboardDismiss() {
-        view.endEditing(true)
+        presenter.didTapOutsideKeyboard()
     }
 
     // MARK: - Setup Layout
@@ -203,5 +211,15 @@ final class CreateTaskViewController: UIViewController {
             stackView.bottomAnchor.constraint(equalTo: scrollContentGuide.bottomAnchor, constant: -16),
             descriptionTextView.heightAnchor.constraint(equalToConstant: 100)
         ])
+    }
+}
+
+extension CreateTaskViewController: CreateTaskViewProtocol {
+    func hideKeyboard() {
+        view.endEditing(true)
+    }
+
+    func popToRootVC() {
+        navigationController?.popToViewController(self, animated: true)
     }
 }
