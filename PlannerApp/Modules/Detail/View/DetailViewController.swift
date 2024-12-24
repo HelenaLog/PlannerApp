@@ -2,7 +2,7 @@ import UIKit
 
 final class DetailViewController: UIViewController {
 
-    private var mockTask: MockTask
+    private var task: Task
 
     // MARK: - Private Visual Components
 
@@ -54,13 +54,13 @@ final class DetailViewController: UIViewController {
         embedViews()
         setupLayout()
         setupNavigationBar()
-        configure(with: mockTask)
+        configure(with: task)
     }
 
     // MARK: - Init
 
-    init(mockTask: MockTask) {
-        self.mockTask = mockTask
+    init(task: Task) {
+        self.task = task
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -93,10 +93,10 @@ final class DetailViewController: UIViewController {
 
     // MARK: - Configure
 
-    private func configure(with task: MockTask) {
+    private func configure(with task: Task) {
         titleLabel.text = task.name
-        dayLabel.text = task.dateStart.timeIntervalToDayString()
-        timeLabel.text = task.dateStart.timeIntervalToString() + " - " + task.dateFinish.timeIntervalToString()
+        dayLabel.text = task.dateStart.dateToString()
+        timeLabel.text = task.dateStart.timeToString() + " - " + task.dateFinish.timeToString()
         descriptionLabel.text = task.description
     }
 

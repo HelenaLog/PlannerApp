@@ -2,25 +2,7 @@ import UIKit
 
 final class TaskListViewController: UIViewController {
 
-    private let mockTasks: [MockTask] = [
-        MockTask(
-            id: 1,
-            name: "My task",
-            dateStart: 147600000,
-            dateFinish: 147610000,
-            description: "Description of my task"
-        ),
-        MockTask(
-            id: 2,
-            name: "New task",
-            dateStart: 147600000,
-            dateFinish: 147610000,
-            description: "Description of new task"
-        )
-    ]
-
-    private var sections = [Section]()
-    private var selectedDate = Date()
+    var presenter: TaskListViewPresenterProtocol!
 
     // MARK: - Private Visual Components
 
@@ -43,7 +25,7 @@ final class TaskListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .green
+        view.backgroundColor = .white
         embedViews()
         setupLayout()
         setupTableViewDelegate()
@@ -52,7 +34,7 @@ final class TaskListViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        getTasks(with: selectedDate)
+        presenter.getTasks(with: presenter.selectedDate)
     }
 
     // MARK: - Embed views
@@ -90,8 +72,8 @@ final class TaskListViewController: UIViewController {
 
     @objc
     func dateChanged(sender: UIDatePicker) {
-        selectedDate = sender.date
-        self.getTasks(with: selectedDate)
+        presenter.selectedDate = sender.date
+        presenter.getTasks(with: presenter.selectedDate)
     }
 
     @objc
@@ -114,11 +96,6 @@ final class TaskListViewController: UIViewController {
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
         ])
     }
-
-    private func getTasks(with selectedDate: Date) {
-        sections = TaskSectionCreator.createSections(from: mockTasks)
-        tableView.reloadData()
-    }
 }
 
 // MARK: - UITableViewDataSource
@@ -126,15 +103,15 @@ final class TaskListViewController: UIViewController {
 extension TaskListViewController: UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        sections.count
+        presenter.numberOfSections()
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        sections[section].time
+        presenter.titleForHeader(inSection: section)
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        sections[section].tasks.count
+        presenter.numberOfRows(inSection: section)
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -142,7 +119,7 @@ extension TaskListViewController: UITableViewDataSource {
             withIdentifier: TaskListTableViewCell.identifier,
             for: indexPath
         ) as? TaskListTableViewCell else { return UITableViewCell() }
-        let task = sections[indexPath.section].tasks[indexPath.row]
+        let task = presenter.task(at: indexPath)
         cell.configure(with: task)
         return cell
     }
@@ -153,8 +130,17 @@ extension TaskListViewController: UITableViewDataSource {
 extension TaskListViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let task = sections[indexPath.section].tasks[indexPath.row]
-        let detailVC = DetailViewController(mockTask: task)
+        let task = presenter.task(at: indexPath)
+        let detailVC = DetailViewController(task: task)
         navigationController?.pushViewController(detailVC, animated: true)
+    }
+}
+
+// MARK: - TaskListViewProtocol
+
+extension TaskListViewController: TaskListViewProtocol {
+
+    func reloadData() {
+        tableView.reloadData()
     }
 }
