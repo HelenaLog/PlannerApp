@@ -13,7 +13,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
         window = UIWindow(windowScene: windowScene)
-        let navigationController = UINavigationController(rootViewController: Assembly.makeTaskListModule())
+        let navigationController = UINavigationController()
+        let assembly = Assembly()
+        let router = Router(navigationController: navigationController, assembly: assembly)
+        router.taskListViewController()
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }

@@ -1,26 +1,29 @@
 import UIKit
 
 final class Assembly: AssemblyProtocol {
-    static func makeTaskListModule() -> UIViewController {
+
+    // MARK: - Public methods
+
+    func makeTaskListModule(router: RouterProtocol) -> UIViewController {
         let view = TaskListViewController()
         let storageService = RealmService()
-        let presenter = TaskListPresenter(view: view, storageService: storageService)
+        let presenter = TaskListPresenter(view: view, storageService: storageService, router: router)
         view.presenter = presenter
         return view
     }
 
-    static func makeDetailModule(with task: Task) -> UIViewController {
+    func makeDetailModule(with task: Task, router: RouterProtocol) -> UIViewController {
         let view = DetailViewController()
         let storageService = RealmService()
-        let presenter = DetailPresenter(view: view, storageService: storageService, task: task)
+        let presenter = DetailPresenter(view: view, storageService: storageService, router: router, task: task)
         view.presenter = presenter
         return view
     }
 
-    static func makeCreateTaskModule() -> UIViewController {
+    func makeCreateTaskModule(router: RouterProtocol) -> UIViewController {
         let view = CreateTaskViewController()
         let storageService = RealmService()
-        let presenter = CreateTaskPresenter(view: view, storageService: storageService)
+        let presenter = CreateTaskPresenter(view: view, storageService: storageService, router: router)
         view.presenter = presenter
         return view
     }

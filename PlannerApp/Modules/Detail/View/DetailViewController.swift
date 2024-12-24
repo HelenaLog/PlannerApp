@@ -15,6 +15,7 @@ final class DetailViewController: UIViewController {
 
     private let titleLabel: UILabel = {
         let label = UILabel()
+        label.text = "Title label"
         label.font = .systemFont(ofSize: 25, weight: .medium)
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -54,6 +55,11 @@ final class DetailViewController: UIViewController {
         embedViews()
         setupLayout()
         setupNavigationBar()
+        presenter.setTask()
+    }
+
+    deinit {
+        print("deinit DetailViewController")
     }
 
     // MARK: - Embed views
@@ -128,10 +134,6 @@ extension DetailViewController: DetailViewProtocol {
         titleLabel.text = task.name
         dayLabel.text = task.dateStart.dateToString()
         timeLabel.text = task.dateStart.timeToString() + " - " + task.dateFinish.timeToString()
-        descriptionLabel.text = task.description
-    }
-
-    func popToRootVC() {
-        navigationController?.popToViewController(self, animated: true)
+        descriptionLabel.text = task.taskDescription
     }
 }

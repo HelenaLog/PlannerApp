@@ -2,7 +2,6 @@ import Foundation
 
 protocol CreateTaskViewProtocol: AnyObject {
     func showAlert(title: String, message: String?)
-    func popToRootVC()
     func hideKeyboard()
 }
 
@@ -18,18 +17,21 @@ final class CreateTaskPresenter: CreateTaskViewPresenterProtocol {
 
     private weak var view: CreateTaskViewProtocol?
     private let storageService: RealmServiceProtocol
+    private let router: RouterProtocol
 
     // MARK: - Initialization
 
     init(
         view: CreateTaskViewProtocol,
-        storageService: RealmServiceProtocol
+        storageService: RealmServiceProtocol,
+        router: RouterProtocol
     ) {
         self.view = view
         self.storageService = storageService
+        self.router = router
     }
 
-    // MARK: - Presenter input functions
+    // MARK: - Public methods
 
     func isValidation(timeStart: Date, timeFinish: Date, name: String?) -> Bool {
         guard
@@ -61,7 +63,7 @@ final class CreateTaskPresenter: CreateTaskViewPresenterProtocol {
             task.taskDescription = description
 
             storageService.save(task: task)
-            view?.popToRootVC()
+            router.popToRootViewController()
         }
     }
 

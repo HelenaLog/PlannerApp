@@ -15,6 +15,7 @@ final class TaskListViewController: UIViewController {
 
     private let tableView: UITableView = {
         let tableView = UITableView()
+        tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false
         tableView.register(TaskListTableViewCell.self, forCellReuseIdentifier: TaskListTableViewCell.identifier)
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -30,6 +31,7 @@ final class TaskListViewController: UIViewController {
         setupLayout()
         setupTableViewDelegate()
         setupNavigationBar()
+        setupBehaviour()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -71,15 +73,14 @@ final class TaskListViewController: UIViewController {
     // MARK: - Action
 
     @objc
-    func dateChanged(sender: UIDatePicker) {
+    func dateChanged(_ sender: UIDatePicker) {
         presenter.selectedDate = sender.date
         presenter.getTasks(with: presenter.selectedDate)
     }
 
     @objc
     func addTaskTapped() {
-        let createTaskVC = Assembly.makeCreateTaskModule()
-        navigationController?.pushViewController(createTaskVC, animated: true)
+        presenter.addTaskTapped()
     }
 
     // MARK: - Setup Layout
@@ -132,8 +133,7 @@ extension TaskListViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let task = presenter.task(at: indexPath)
-        let detailVC = Assembly.makeDetailModule(with: task)
-        navigationController?.pushViewController(detailVC, animated: true)
+        presenter.select(task: task)
     }
 }
 

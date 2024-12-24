@@ -119,6 +119,10 @@ final class CreateTaskViewController: UIViewController {
         addKeyboardObservers()
     }
 
+    deinit {
+        print("deinit CreateTaskViewController")
+    }
+
     // MARK: - Embed views
 
     private func embedViews() {
@@ -215,11 +219,8 @@ final class CreateTaskViewController: UIViewController {
 }
 
 extension CreateTaskViewController: CreateTaskViewProtocol {
+
     func hideKeyboard() {
         view.endEditing(true)
-    }
-
-    func popToRootVC() {
-        navigationController?.popToViewController(self, animated: true)
     }
 }

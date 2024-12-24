@@ -62,6 +62,7 @@ final class TaskListTableViewCell: UITableViewCell {
     // MARK: - Configure
 
     func configure(with task: Task) {
+        selectionStyle = .none
         titleLabel.text = task.name
         timeLabel.text = task.dateStart.timeToString() + " - " + task.dateFinish.timeToString()
     }

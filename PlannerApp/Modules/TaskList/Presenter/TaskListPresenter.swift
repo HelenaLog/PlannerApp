@@ -11,6 +11,8 @@ protocol TaskListViewPresenterProtocol: AnyObject {
     func titleForHeader(inSection section: Int) -> String?
     func numberOfRows(inSection section: Int) -> Int
     func task(at indexPath: IndexPath) -> Task
+    func select(task: Task)
+    func addTaskTapped()
 }
 
 final class TaskListPresenter: TaskListViewPresenterProtocol {
@@ -19,6 +21,7 @@ final class TaskListPresenter: TaskListViewPresenterProtocol {
 
     private weak var view: TaskListViewProtocol?
     private let storageService: RealmServiceProtocol
+    private let router: RouterProtocol
     private var sections: [Section] = []
     var selectedDate: Date?
 
@@ -26,20 +29,23 @@ final class TaskListPresenter: TaskListViewPresenterProtocol {
 
     init(
         view: TaskListViewProtocol,
-        storageService: RealmServiceProtocol
+        storageService: RealmServiceProtocol,
+        router: RouterProtocol
     ) {
         self.view = view
         self.storageService = storageService
+        self.router = router
         self.selectedDate = Date()
+        getTasks(with: selectedDate)
     }
 
-    // MARK: - Presenter input functions
+    // MARK: - Public methods
 
     func getTasks(with selectedDate: Date?) {
         guard let selectedDate = selectedDate else { return }
         let tasks = storageService.getTasks(with: selectedDate)
         self.sections = TaskSectionCreator.createSections(from: tasks)
-        view?.reloadData()
+        self.view?.reloadData()
     }
 
     func numberOfSections() -> Int {
@@ -56,5 +62,13 @@ final class TaskListPresenter: TaskListViewPresenterProtocol {
 
     func titleForHeader(inSection section: Int) -> String? {
         sections[section].time
+    }
+
+    func select(task: Task) {
+        router.goToDetail(task: task)
+    }
+
+    func addTaskTapped() {
+        router.goToCreateTask()
     }
 }

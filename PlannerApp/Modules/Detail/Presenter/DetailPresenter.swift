@@ -3,11 +3,10 @@ import Foundation
 protocol DetailViewProtocol: AnyObject {
     func configure(with task: Task)
     func presentChangeAlert(completionHandler: @escaping (Bool) -> Void)
-    func popToRootVC()
 }
 
 protocol DetailViewPresenterProtocol: AnyObject {
-    func set(task: Task)
+    func setTask()
     func delete()
 }
 
@@ -17,6 +16,7 @@ final class DetailPresenter: DetailViewPresenterProtocol {
 
     private weak var view: DetailViewProtocol?
     private let storageService: RealmServiceProtocol
+    private let router: RouterProtocol
     private var task: Task
 
     // MARK: - Initialization
@@ -24,16 +24,18 @@ final class DetailPresenter: DetailViewPresenterProtocol {
     init(
         view: DetailViewProtocol,
         storageService: RealmServiceProtocol,
+        router: RouterProtocol,
         task: Task
     ) {
         self.view = view
         self.storageService = storageService
+        self.router = router
         self.task = task
     }
 
-    // MARK: - Presenter input functions
+    // MARK: - Public methods
 
-    func set(task: Task) {
+    func setTask() {
         view?.configure(with: task)
     }
 
@@ -43,11 +45,10 @@ final class DetailPresenter: DetailViewPresenterProtocol {
             switch value {
             case true:
                 self.storageService.delete(task: self.task)
-                self.view?.popToRootVC()
+                self.router.popToRootViewController()
             case false:
                 break
             }
         })
     }
-
 }
