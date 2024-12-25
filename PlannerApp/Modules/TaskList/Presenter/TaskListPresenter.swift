@@ -10,8 +10,8 @@ protocol TaskListViewPresenterProtocol: AnyObject {
     func numberOfSections() -> Int
     func titleForHeader(inSection section: Int) -> String?
     func numberOfRows(inSection section: Int) -> Int
-    func task(at indexPath: IndexPath) -> Task
-    func select(task: Task)
+    func task(at indexPath: IndexPath) -> TaskRealm
+    func select(task: TaskRealm)
     func addTaskTapped()
 }
 
@@ -22,6 +22,7 @@ final class TaskListPresenter: TaskListViewPresenterProtocol {
     private weak var view: TaskListViewProtocol?
     private let storageService: RealmServiceProtocol
     private let router: RouterProtocol
+    private let networkService: NetworkServiceProtocol
     private var sections: [Section] = []
     var selectedDate: Date?
 
@@ -30,11 +31,13 @@ final class TaskListPresenter: TaskListViewPresenterProtocol {
     init(
         view: TaskListViewProtocol,
         storageService: RealmServiceProtocol,
-        router: RouterProtocol
+        router: RouterProtocol,
+        networkService: NetworkServiceProtocol
     ) {
         self.view = view
         self.storageService = storageService
         self.router = router
+        self.networkService = networkService
         self.selectedDate = Date()
         getTasks(with: selectedDate)
     }
@@ -43,9 +46,24 @@ final class TaskListPresenter: TaskListViewPresenterProtocol {
 
     func getTasks(with selectedDate: Date?) {
         guard let selectedDate = selectedDate else { return }
+        let allTasks = storageService.getAllTasks()
+        if allTasks.isEmpty { getTasksFromNetwork() }
+
         let tasks = storageService.getTasks(with: selectedDate)
         self.sections = TaskSectionCreator.createSections(from: tasks)
         self.view?.reloadData()
+    }
+
+    func getTasksFromNetwork() {
+        networkService.fetchTasks(completion: { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let tasks):
+                self.storageService.saveTaskFromNetwork(tasks)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        })
     }
 
     func numberOfSections() -> Int {
@@ -56,7 +74,7 @@ final class TaskListPresenter: TaskListViewPresenterProtocol {
         sections[section].tasks.count
     }
 
-    func task(at indexPath: IndexPath) -> Task {
+    func task(at indexPath: IndexPath) -> TaskRealm {
         sections[indexPath.section].tasks[indexPath.row]
     }
 
@@ -64,7 +82,7 @@ final class TaskListPresenter: TaskListViewPresenterProtocol {
         sections[section].time
     }
 
-    func select(task: Task) {
+    func select(task: TaskRealm) {
         router.goToDetail(task: task)
     }
 

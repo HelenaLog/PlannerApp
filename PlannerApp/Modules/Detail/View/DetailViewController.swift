@@ -130,10 +130,10 @@ extension DetailViewController: DetailViewProtocol {
 
     // MARK: - Configure
 
-    func configure(with task: Task) {
+    func configure(with task: TaskRealm) {
         titleLabel.text = task.name
         dayLabel.text = task.dateStart.dateToString()
         timeLabel.text = task.dateStart.timeToString() + " - " + task.dateFinish.timeToString()
-        descriptionLabel.text = task.taskDescription
+        descriptionLabel.text = task.descriptionText
     }
 }

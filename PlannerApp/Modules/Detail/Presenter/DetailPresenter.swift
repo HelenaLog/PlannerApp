@@ -1,7 +1,7 @@
 import Foundation
 
 protocol DetailViewProtocol: AnyObject {
-    func configure(with task: Task)
+    func configure(with task: TaskRealm)
     func presentChangeAlert(completionHandler: @escaping (Bool) -> Void)
 }
 
@@ -17,7 +17,7 @@ final class DetailPresenter: DetailViewPresenterProtocol {
     private weak var view: DetailViewProtocol?
     private let storageService: RealmServiceProtocol
     private let router: RouterProtocol
-    private var task: Task
+    private var task: TaskRealm
 
     // MARK: - Initialization
 
@@ -25,7 +25,7 @@ final class DetailPresenter: DetailViewPresenterProtocol {
         view: DetailViewProtocol,
         storageService: RealmServiceProtocol,
         router: RouterProtocol,
-        task: Task
+        task: TaskRealm
     ) {
         self.view = view
         self.storageService = storageService

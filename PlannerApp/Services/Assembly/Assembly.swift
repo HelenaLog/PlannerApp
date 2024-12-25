@@ -7,12 +7,18 @@ final class Assembly: AssemblyProtocol {
     func makeTaskListModule(router: RouterProtocol) -> UIViewController {
         let view = TaskListViewController()
         let storageService = RealmService()
-        let presenter = TaskListPresenter(view: view, storageService: storageService, router: router)
+        let networkService = NetworkService()
+        let presenter = TaskListPresenter(
+            view: view,
+            storageService: storageService,
+            router: router,
+            networkService: networkService
+        )
         view.presenter = presenter
         return view
     }
 
-    func makeDetailModule(with task: Task, router: RouterProtocol) -> UIViewController {
+    func makeDetailModule(with task: TaskRealm, router: RouterProtocol) -> UIViewController {
         let view = DetailViewController()
         let storageService = RealmService()
         let presenter = DetailPresenter(view: view, storageService: storageService, router: router, task: task)

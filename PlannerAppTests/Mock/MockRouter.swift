@@ -17,7 +17,7 @@ final class MockRouter: RouterProtocol {
     // MARK: - Public Method
 
     func taskListViewController() {}
-    func goToDetail(task: Task) {}
+    func goToDetail(task: TaskRealm) {}
     func goToCreateTask() {}
     func popToRootViewController() {}
 }

@@ -1,9 +1,9 @@
-import RealmSwift
+import Foundation
 
-final class Task: Object {
-    @Persisted(primaryKey: true) var id: UUID
-    @Persisted var name: String
-    @Persisted var dateStart: Date
-    @Persisted var dateFinish: Date
-    @Persisted var taskDescription: String
+struct Task: Decodable {
+    let id: Int
+    let dateStart: TimeInterval
+    let dateFinish: TimeInterval
+    let name: String
+    let description: String?
 }

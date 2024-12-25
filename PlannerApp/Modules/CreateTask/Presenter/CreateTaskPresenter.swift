@@ -56,11 +56,11 @@ final class CreateTaskPresenter: CreateTaskViewPresenterProtocol {
 
     func saveTaskWith(dateStart: Date, timeStart: Date, timeFinish: Date, name: String, description: String) {
         if isValidation(timeStart: timeStart, timeFinish: timeFinish, name: name) {
-            let task = Task()
+            let task = TaskRealm()
             task.name = name
             task.dateStart = dateStart.connect(with: timeStart)
             task.dateFinish = dateStart.connect(with: timeFinish)
-            task.taskDescription = description
+            task.descriptionText = description
 
             storageService.save(task: task)
             router.popToRootViewController()

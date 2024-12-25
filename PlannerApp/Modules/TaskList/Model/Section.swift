@@ -2,5 +2,5 @@ import Foundation
 
 struct Section {
     let time: String
-    var tasks: [Task]
+    var tasks: [TaskRealm]
 }

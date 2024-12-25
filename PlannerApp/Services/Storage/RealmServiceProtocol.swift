@@ -1,7 +1,9 @@
 import Foundation
 
 protocol RealmServiceProtocol {
-    func save(task: Task)
-    func getTasks(with date: Date) -> [Task]
-    func delete(task: Task)
+    func save(task: TaskRealm)
+    func getTasks(with date: Date) -> [TaskRealm]
+    func getAllTasks() -> [TaskRealm]
+    func saveTaskFromNetwork(_ tasks: [Task])
+    func delete(task: TaskRealm)
 }
