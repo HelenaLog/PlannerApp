@@ -26,7 +26,7 @@ final class Router: RouterProtocol {
         }
     }
 
-    func goToDetail(task: Task) {
+    func goToDetail(task: TaskRealm) {
         if let navigationController = navigationController {
             guard let detailViewController = assembly?.makeDetailModule(with: task, router: self) else { return }
             navigationController.pushViewController(detailViewController, animated: true)

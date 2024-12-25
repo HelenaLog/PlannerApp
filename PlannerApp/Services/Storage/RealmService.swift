@@ -16,9 +16,21 @@ final class RealmService {
         }
     }
 
-    // MARK: - Fetch
+    // MARK: - Fetch All Objects
 
-    func fetchObjectWithDate<T: Object>(objectType: T.Type, selectedDate: Date) -> [T] {
+    func fetchObjects<T: Object>(objectType: T.Type) -> [T] {
+        do {
+            let realm = try Realm(configuration: deleteIfMigration)
+            return Array(realm.objects(T.self))
+        } catch {
+            print(RealmError.objectGettingError)
+        }
+        return []
+    }
+
+    // MARK: - Fetch Objects With Date
+
+    func fetchObjectsWithDate<T: Object>(objectType: T.Type, selectedDate: Date) -> [T] {
         do {
             let realm = try Realm(configuration: deleteIfMigration)
             let calendar = Calendar.current

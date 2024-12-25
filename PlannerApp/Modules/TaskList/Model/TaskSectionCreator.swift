@@ -2,7 +2,7 @@ import Foundation
 
 struct TaskSectionCreator {
 
-    static func createSections(from tasks: [Task]) -> [Section] {
+    static func createSections(from tasks: [TaskRealm]) -> [Section] {
         var sections = createEmptySections()
         for task in tasks {
             addTaskToSection(task, to: &sections)
@@ -21,7 +21,7 @@ struct TaskSectionCreator {
 
     // MARK: - Add Task To Section
 
-    private static func addTaskToSection(_ task: Task, to sections: inout [Section]) {
+    private static func addTaskToSection(_ task: TaskRealm, to sections: inout [Section]) {
         let calendar = Calendar.current
 
         let startHour = calendar.component(.hour, from: task.dateStart)

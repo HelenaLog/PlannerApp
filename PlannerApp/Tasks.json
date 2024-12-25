@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "date_start": 1733047200,
+        "date_finish": 1733049000,
+        "name": "My task",
+        "description": "Description of my task"
+    },
+    {
+        "id": 2,
+        "date_start": 1733842800,
+        "date_finish": 1733848200,
+        "name": "New Task",
+        "description": "Description of the new task"
+    },
+    {
+        "id": 3,
+        "date_start": 1734242400,
+        "date_finish": 1734245100,
+        "name": "Task",
+        "description": "Description"
+    }
+]

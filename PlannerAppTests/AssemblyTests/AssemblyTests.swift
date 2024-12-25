@@ -25,11 +25,11 @@ final class AssemblyTests: XCTestCase {
     }
 
     func testMakeDetailViewController() throws {
-        let mockTask = Task()
+        let mockTask = TaskRealm()
         mockTask.name = "Foo"
         mockTask.dateStart = Date()
         mockTask.dateFinish = Date()
-        mockTask.taskDescription = "Foo"
+        mockTask.descriptionText = "Foo"
 
         let router = MockRouter(assembly: assembly)
         let detailVC = assembly?.makeDetailModule(with: mockTask, router: router)

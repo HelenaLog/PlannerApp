@@ -26,11 +26,11 @@ final class RouterTests: XCTestCase {
     }
 
     func testShowDetailVC() throws {
-        let mockTask = Task()
+        let mockTask = TaskRealm()
         mockTask.dateStart = Date()
         mockTask.dateFinish = Date()
         mockTask.name = "Foo"
-        mockTask.taskDescription = "Foo"
+        mockTask.descriptionText = "Foo"
 
         router?.goToDetail(task: mockTask)
         let detailVC = navigationController.presentedVC
