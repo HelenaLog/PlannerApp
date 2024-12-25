@@ -26,7 +26,6 @@ final class TaskListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
         embedViews()
         setupLayout()
         setupTableViewDelegate()
@@ -42,6 +41,7 @@ final class TaskListViewController: UIViewController {
     // MARK: - Embed views
 
     private func embedViews() {
+        view.backgroundColor = .white
         view.addSubview(datePicker)
         view.addSubview(tableView)
     }

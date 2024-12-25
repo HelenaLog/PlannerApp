@@ -6,6 +6,11 @@ final class DetailViewController: UIViewController {
 
     // MARK: - Private Visual Components
 
+    private let taskNameLabel: UILabel = .makeTitleLabel(text: .none, textColor: .black)
+    private let dayLabel: UILabel = .makeSubtitleLabel(text: .none, textColor: .lightGray)
+    private let timeLabel: UILabel = .makeSubtitleLabel(text: .none, textColor: .black)
+    private let descriptionLabel: UILabel = .makeSubtitleLabel(text: .none, textColor: .black)
+
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.showsVerticalScrollIndicator = false
@@ -13,45 +18,10 @@ final class DetailViewController: UIViewController {
         return scrollView
     }()
 
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Title label"
-        label.font = .systemFont(ofSize: 25, weight: .medium)
-        label.numberOfLines = 0
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-
-    private let dayLabel: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 0
-        label.font = .systemFont(ofSize: 20)
-        label.textColor = .lightGray
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-
-    private let timeLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 20)
-        label.numberOfLines = 0
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-
-    private let descriptionLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 20)
-        label.numberOfLines = 0
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
         embedViews()
         setupLayout()
         setupNavigationBar()
@@ -65,9 +35,10 @@ final class DetailViewController: UIViewController {
     // MARK: - Embed views
 
     private func embedViews() {
+        view.backgroundColor = .white
         view.addSubview(scrollView)
         [
-            titleLabel,
+            taskNameLabel,
             dayLabel,
             timeLabel,
             descriptionLabel
@@ -104,11 +75,11 @@ final class DetailViewController: UIViewController {
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
 
-            titleLabel.topAnchor.constraint(equalTo: scrollContentGuide.topAnchor, constant: 16),
-            titleLabel.leadingAnchor.constraint(equalTo: scrollFrameGuide.leadingAnchor, constant: 16),
-            titleLabel.trailingAnchor.constraint(equalTo: scrollFrameGuide.trailingAnchor, constant: -16),
+            taskNameLabel.topAnchor.constraint(equalTo: scrollContentGuide.topAnchor, constant: 16),
+            taskNameLabel.leadingAnchor.constraint(equalTo: scrollFrameGuide.leadingAnchor, constant: 16),
+            taskNameLabel.trailingAnchor.constraint(equalTo: scrollFrameGuide.trailingAnchor, constant: -16),
 
-            dayLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
+            dayLabel.topAnchor.constraint(equalTo: taskNameLabel.bottomAnchor, constant: 10),
             dayLabel.leadingAnchor.constraint(equalTo: scrollFrameGuide.leadingAnchor, constant: 16),
             dayLabel.trailingAnchor.constraint(equalTo: scrollFrameGuide.trailingAnchor, constant: -16),
 
@@ -128,10 +99,8 @@ final class DetailViewController: UIViewController {
 
 extension DetailViewController: DetailViewProtocol {
 
-    // MARK: - Configure
-
     func configure(with task: TaskRealm) {
-        titleLabel.text = task.name
+        taskNameLabel.text = task.name
         dayLabel.text = task.dateStart.dateToString()
         timeLabel.text = task.dateStart.timeToString() + " - " + task.dateFinish.timeToString()
         descriptionLabel.text = task.descriptionText

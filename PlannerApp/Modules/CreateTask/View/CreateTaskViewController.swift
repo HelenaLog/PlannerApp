@@ -6,19 +6,21 @@ final class CreateTaskViewController: UIViewController {
 
     // MARK: - Private Visual Components
 
+    private let taskNameLabel: UILabel = .makeTitleLabel(text: "Task Name", textColor: .black)
+    private let dateLabel: UILabel = .makeTitleLabel(text: "Date", textColor: .black)
+    private let startTimeLabel: UILabel = .makeTitleLabel(text: "Start Time", textColor: .black)
+    private let finishTimeLabel: UILabel = .makeTitleLabel(text: "Finish Time", textColor: .black)
+    private let descriptionLabel: UILabel = .makeTitleLabel(text: "Description", textColor: .black)
+
+    private let datePicker: UIDatePicker = .makeDatePicker(datePickerMode: .date)
+    private let startTimePicker: UIDatePicker = .makeDatePicker(datePickerMode: .time)
+    private let finishTimePicker: UIDatePicker = .makeDatePicker(datePickerMode: .time)
+
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.showsVerticalScrollIndicator = false
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
-    }()
-
-    private let taskNameLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Task Name"
-        label.font = .systemFont(ofSize: 20, weight: .medium)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
     }()
 
     private let taskNameTextField: UITextField = {
@@ -31,70 +33,12 @@ final class CreateTaskViewController: UIViewController {
         return textField
     }()
 
-    private let dateLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Date"
-        label.font = .systemFont(ofSize: 20, weight: .medium)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-
-    private let startTimeLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Start Time"
-        label.font = .systemFont(ofSize: 20, weight: .medium)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-
-    private let finishTimeLabel: UILabel = {
-        let label = UILabel()
-        label.text = "End Time"
-        label.textAlignment = .left
-        label.font = .systemFont(ofSize: 20, weight: .medium)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-
-    private let datePicker: UIDatePicker = {
-        let pickerView = UIDatePicker()
-        pickerView.datePickerMode = .date
-        pickerView.locale = Locale(identifier: "en_EN")
-        pickerView.contentHorizontalAlignment = .left
-        pickerView.translatesAutoresizingMaskIntoConstraints = false
-        return pickerView
-    }()
-
-    private let startTimePicker: UIDatePicker = {
-        let pickerView = UIDatePicker()
-        pickerView.datePickerMode = .time
-        pickerView.contentHorizontalAlignment = .left
-        pickerView.translatesAutoresizingMaskIntoConstraints = false
-        return pickerView
-    }()
-
-    private let finishTimePicker: UIDatePicker = {
-        let pickerView = UIDatePicker()
-        pickerView.datePickerMode = .time
-        pickerView.contentHorizontalAlignment = .left
-        pickerView.translatesAutoresizingMaskIntoConstraints = false
-        return pickerView
-    }()
-
-    private let descriptionLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Description"
-        label.font = .systemFont(ofSize: 20, weight: .medium)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-
     private let descriptionTextView: UITextView = {
         let textView = UITextView()
-        textView.font = .systemFont(ofSize: 20)
-        textView.layer.borderWidth = 1
+        textView.font = .systemFont(ofSize: 18)
+        textView.layer.borderWidth = 0.25
         textView.layer.borderColor = UIColor.lightGray.cgColor
-        textView.layer.cornerRadius = 10
+        textView.layer.cornerRadius = 2.5
         textView.translatesAutoresizingMaskIntoConstraints = false
         return textView
     }()
@@ -111,12 +55,12 @@ final class CreateTaskViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
         embedViews()
         setupLayout()
         setupNavigationBar()
         setupTapGestureRecognizer()
         addKeyboardObservers()
+        setupTextFieldDelegate()
     }
 
     deinit {
@@ -126,6 +70,7 @@ final class CreateTaskViewController: UIViewController {
     // MARK: - Embed views
 
     private func embedViews() {
+        view.backgroundColor = .white
         view.addSubview(scrollView)
         scrollView.addSubview(stackView)
         [
@@ -179,6 +124,10 @@ final class CreateTaskViewController: UIViewController {
         )
     }
 
+    private func setupTextFieldDelegate() {
+        taskNameTextField.delegate = self
+    }
+
     // MARK: - Action
 
     @objc
@@ -217,6 +166,20 @@ final class CreateTaskViewController: UIViewController {
         ])
     }
 }
+
+// MARK: - UITextFieldDelegate
+
+extension CreateTaskViewController: UITextFieldDelegate {
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == taskNameTextField {
+            descriptionTextView.becomeFirstResponder()
+        }
+        return true
+    }
+}
+
+// MARK: - CreateTaskViewProtocol
 
 extension CreateTaskViewController: CreateTaskViewProtocol {
 
