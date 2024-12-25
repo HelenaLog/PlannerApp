@@ -9,29 +9,17 @@ final class TaskListTableViewCell: UITableViewCell {
     private let containerView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
-        view.layer.borderWidth = 1
-        view.layer.borderColor = UIColor.blue.cgColor
+        view.layer.shadowColor = UIColor.blue.cgColor
+        view.layer.shadowOpacity = 0.25
+        view.layer.shadowRadius = 2.5
+        view.layer.shadowOffset = CGSize(width: 0, height: 0)
         view.layer.cornerRadius = 25
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
 
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .blue
-        label.numberOfLines = 0
-        label.font = .boldSystemFont(ofSize: 25)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-
-    private let timeLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .lightGray
-        label.numberOfLines = 0
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    private let taskNameLabel: UILabel = .makeTitleLabel(text: .none, textColor: .blue)
+    private let timeLabel: UILabel = .makeSubtitleLabel(text: .none, textColor: .black)
 
     // MARK: - Init
 
@@ -47,7 +35,7 @@ final class TaskListTableViewCell: UITableViewCell {
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        titleLabel.text = nil
+        taskNameLabel.text = nil
         timeLabel.text = nil
     }
 
@@ -55,15 +43,15 @@ final class TaskListTableViewCell: UITableViewCell {
 
     private func embedViews() {
         contentView.addSubview(containerView)
+        contentView.addSubview(taskNameLabel)
         contentView.addSubview(timeLabel)
-        contentView.addSubview(titleLabel)
     }
 
     // MARK: - Configure
 
     func configure(with task: TaskRealm) {
         selectionStyle = .none
-        titleLabel.text = task.name
+        taskNameLabel.text = task.name
         timeLabel.text = task.dateStart.timeToString() + " - " + task.dateFinish.timeToString()
     }
 
@@ -76,11 +64,11 @@ final class TaskListTableViewCell: UITableViewCell {
             containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
             containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
 
-            titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 16),
-            titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 25),
-            titleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16),
+            taskNameLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 16),
+            taskNameLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 25),
+            taskNameLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16),
 
-            timeLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16),
+            timeLabel.topAnchor.constraint(equalTo: taskNameLabel.bottomAnchor, constant: 16),
             timeLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 25),
             timeLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16),
             timeLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -16)

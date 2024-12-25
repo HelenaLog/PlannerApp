@@ -14,7 +14,6 @@
 		4D228BA72D195578005588DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D228BA52D195578005588DF /* LaunchScreen.storyboard */; };
 		4D228BB92D196816005588DF /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D228BB82D196816005588DF /* RouterTests.swift */; };
 		4D228BC12D1970B3005588DF /* TaskListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D228BC02D1970B3005588DF /* TaskListTableViewCell.swift */; };
-		4D228BC42D1977D6005588DF /* TimeInterval+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D228BC32D1977D6005588DF /* TimeInterval+Extension.swift */; };
 		4D743E372D19AB16003F382F /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D743E362D19AB16003F382F /* Task.swift */; };
 		4D743E392D19AF71003F382F /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D743E382D19AF71003F382F /* Section.swift */; };
 		4D743E3B2D19AFAB003F382F /* TaskSectionCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D743E3A2D19AFAB003F382F /* TaskSectionCreator.swift */; };
@@ -36,6 +35,8 @@
 		4DA64CF02D1C49E5004ADE4F /* NetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA64CEF2D1C49E5004ADE4F /* NetworkServiceProtocol.swift */; };
 		4DA64CF22D1C4A45004ADE4F /* NetworkService+Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA64CF12D1C4A45004ADE4F /* NetworkService+Task.swift */; };
 		4DA64CF42D1C4D8B004ADE4F /* Tasks.json in Resources */ = {isa = PBXBuildFile; fileRef = 4DA64CF32D1C4D8B004ADE4F /* Tasks.json */; };
+		4DB2C0F72D1C69F70020B558 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB2C0F62D1C69F70020B558 /* UILabel+Extension.swift */; };
+		4DB2C0F92D1C6D510020B558 /* UIDatePicker+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB2C0F82D1C6D510020B558 /* UIDatePicker+Extension.swift */; };
 		4DBC7B2F2D1A01180002EE00 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBC7B2E2D1A01180002EE00 /* RealmService.swift */; };
 		4DBC7B312D1A019E0002EE00 /* RealmError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBC7B302D1A019E0002EE00 /* RealmError.swift */; };
 		4DBC7B332D1A03080002EE00 /* RealmServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBC7B322D1A03080002EE00 /* RealmServiceProtocol.swift */; };
@@ -70,7 +71,6 @@
 		4D228BB62D196816005588DF /* PlannerAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlannerAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D228BB82D196816005588DF /* RouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterTests.swift; sourceTree = "<group>"; };
 		4D228BC02D1970B3005588DF /* TaskListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListTableViewCell.swift; sourceTree = "<group>"; };
-		4D228BC32D1977D6005588DF /* TimeInterval+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Extension.swift"; sourceTree = "<group>"; };
 		4D743E362D19AB16003F382F /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		4D743E382D19AF71003F382F /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		4D743E3A2D19AFAB003F382F /* TaskSectionCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskSectionCreator.swift; sourceTree = "<group>"; };
@@ -92,6 +92,8 @@
 		4DA64CEF2D1C49E5004ADE4F /* NetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProtocol.swift; sourceTree = "<group>"; };
 		4DA64CF12D1C4A45004ADE4F /* NetworkService+Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkService+Task.swift"; sourceTree = "<group>"; };
 		4DA64CF32D1C4D8B004ADE4F /* Tasks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Tasks.json; sourceTree = "<group>"; };
+		4DB2C0F62D1C69F70020B558 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		4DB2C0F82D1C6D510020B558 /* UIDatePicker+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDatePicker+Extension.swift"; sourceTree = "<group>"; };
 		4DBC7B2E2D1A01180002EE00 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		4DBC7B302D1A019E0002EE00 /* RealmError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmError.swift; sourceTree = "<group>"; };
 		4DBC7B322D1A03080002EE00 /* RealmServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmServiceProtocol.swift; sourceTree = "<group>"; };
@@ -145,13 +147,11 @@
 		4D228B992D195576005588DF /* PlannerApp */ = {
 			isa = PBXGroup;
 			children = (
+				4D913DF32D1C7774000A00A5 /* Application */,
 				4D228BC22D197675005588DF /* Extensions */,
-				4D228BB12D19672F005588DF /* Services */,
 				4D228BB02D1966DB005588DF /* Modules */,
+				4D228BB12D19672F005588DF /* Services */,
 				4D228BAF2D19662A005588DF /* SupportingFiles */,
-				4D228B9A2D195576005588DF /* AppDelegate.swift */,
-				4D228B9C2D195576005588DF /* SceneDelegate.swift */,
-				4DA64CF32D1C4D8B004ADE4F /* Tasks.json */,
 			);
 			path = PlannerApp;
 			sourceTree = "<group>";
@@ -210,10 +210,11 @@
 		4D228BC22D197675005588DF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				4D228BC32D1977D6005588DF /* TimeInterval+Extension.swift */,
 				4DBC7B3B2D1A12940002EE00 /* Date+Extension.swift */,
 				4D743E442D19E4BE003F382F /* UIViewController+Extension.swift */,
 				4D743E462D19E529003F382F /* UIResponder+Extension.swift */,
+				4DB2C0F62D1C69F70020B558 /* UILabel+Extension.swift */,
+				4DB2C0F82D1C6D510020B558 /* UIDatePicker+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -289,6 +290,15 @@
 			path = AssemblyTests;
 			sourceTree = "<group>";
 		};
+		4D913DF32D1C7774000A00A5 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				4D228B9A2D195576005588DF /* AppDelegate.swift */,
+				4D228B9C2D195576005588DF /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
 		4D9344672D1A952400AAE613 /* Assembly */ = {
 			isa = PBXGroup;
 			children = (
@@ -327,6 +337,7 @@
 		4DA64CEA2D1C4914004ADE4F /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				4DA64CF32D1C4D8B004ADE4F /* Tasks.json */,
 				4DA64CEF2D1C49E5004ADE4F /* NetworkServiceProtocol.swift */,
 				4DA64CF12D1C4A45004ADE4F /* NetworkService+Task.swift */,
 				4DA64CEB2D1C4965004ADE4F /* NetworkService.swift */,
@@ -546,6 +557,7 @@
 			files = (
 				4DBC7B372D1A04440002EE00 /* RealmService+Task.swift in Sources */,
 				4DA64CF22D1C4A45004ADE4F /* NetworkService+Task.swift in Sources */,
+				4DB2C0F72D1C69F70020B558 /* UILabel+Extension.swift in Sources */,
 				4DA64CEE2D1C4987004ADE4F /* NetworkError.swift in Sources */,
 				4DA2B6532D1AD7C000F4F7B0 /* MainRouterProtocol.swift in Sources */,
 				4D9344692D1A954D00AAE613 /* Assembly.swift in Sources */,
@@ -557,12 +569,12 @@
 				4D228B9F2D195576005588DF /* TaskListViewController.swift in Sources */,
 				4DA2B6512D1AD72400F4F7B0 /* RouterProtocol.swift in Sources */,
 				4D93446B2D1A967000AAE613 /* AssemblyProtocol.swift in Sources */,
-				4D228BC42D1977D6005588DF /* TimeInterval+Extension.swift in Sources */,
 				4DBC7B312D1A019E0002EE00 /* RealmError.swift in Sources */,
 				4D743E3B2D19AFAB003F382F /* TaskSectionCreator.swift in Sources */,
 				4DA64CEC2D1C4965004ADE4F /* NetworkService.swift in Sources */,
 				4DBC7B352D1A03720002EE00 /* TaskRealm.swift in Sources */,
 				4D743E392D19AF71003F382F /* Section.swift in Sources */,
+				4DB2C0F92D1C6D510020B558 /* UIDatePicker+Extension.swift in Sources */,
 				4DBC7B3A2D1A08540002EE00 /* TaskListPresenter.swift in Sources */,
 				4D228B9B2D195576005588DF /* AppDelegate.swift in Sources */,
 				4D93446E2D1A9F5700AAE613 /* DetailPresenter.swift in Sources */,
@@ -791,7 +803,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hello.PlannerAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -812,7 +824,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hello.PlannerAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
